@@ -18,6 +18,10 @@ def get_Expenses():
     print db
     print collection
     print '--------------'
+    pp = collection.find({})
+    print pp
+    print '--------------'
+    print pp.count()
     sum = 0
     for post in collection.find({}):
         sum+= post['amount']
