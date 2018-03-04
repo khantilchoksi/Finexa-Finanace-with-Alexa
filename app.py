@@ -12,8 +12,8 @@ db = client['finexaPrimary']
 collection = db['fakeData']
 app = Flask(__name__)
 
-@app.route('/',methods=['GET', 'POST'])
-def get_Expenses():
+@app.route('/userAndCategory',methods=['GET', 'POST'])
+def get_ExpensesFromUserAndCategory():
     print('Hello world!')
     user = request.json['user']
     category = request.json['category']
@@ -22,9 +22,17 @@ def get_Expenses():
         sum+= post['amount']
     return str(sum)
 
+
+@app.route('/date',methods=['GET', 'POST'])
+def get_ExpensesSinceDate():
+    print('Hello world!')
+    date = request.json['date']
+    sum = 0
+    for post in collection.find({'datetime' : {'$gt':date}}):
+        sum+= post['amount']
+    return str(sum)
+
+
 if __name__ == '__main__':
     app.run(debug=True)
 
-
-#"$and":[{"User": 'ronaldo'}, {"Category": 'food'}]
-#request.form['name']
