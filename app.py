@@ -12,8 +12,8 @@ client = MongoClient("mongodb://localhost:27017/")
 db = client['finexaPrimary']
 collection = db['fakeData']
 app = Flask(__name__)
-
-@app.route('/',methods=['GET'])
+'''
+@app.route('/abc',methods=['GET'])
 def get_Expenses():
     print('Hello world!')
     print db
@@ -30,12 +30,14 @@ def get_Expenses():
     return jsonify(
         amount = sum
     )
-
-@app.route('/userAndCategory',methods=['GET'])
+'''
+@app.route('/',methods=['GET'])
 def get_ExpensesFromUserAndCategory():
     print('Hello world!')
     user = request.args.get('user')
     category = request.args.get('category')
+    print user
+    print category
     sum = 0
     for post in collection.find({'$and' : [{'user':user}, {'category' : category}]}):
         sum+= post['amount']
