@@ -4,6 +4,7 @@ import datetime
 import pprint
 import sys
 from flask import Flask, request 
+from flask import jsonify
 from pymongo import MongoClient 
 
 
@@ -25,7 +26,9 @@ def get_Expenses():
     sum = 0
     for post in collection.find({}):
         sum+= post['amount']
-    return str(sum)
+    return jsonify(
+        amount = sum
+    )
 
 @app.route('/userAndCategory',methods=['GET', 'POST'])
 def get_ExpensesFromUserAndCategory():
