@@ -13,7 +13,7 @@ collection = db['fakeData']
 app = Flask(__name__)
 
 @app.route('/',methods=['GET'])
-def get_ExpensesFromUserAndCategory():
+def get_Expenses():
     print('Hello world!')
     sum = 0
     for post in collection.find({}):
