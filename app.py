@@ -7,10 +7,18 @@ from flask import Flask, request
 from pymongo import MongoClient 
 
 
-client = MongoClient("mongodb+srv://Vishrut_Patel:93Vishrut95!@cluster0-pdqdm.mongodb.net/test")
+client = MongoClient("mongodb://Vishrut_Patel:93Vishrut95!@cluster0-pdqdm.mongodb.net/test")
 db = client['finexaPrimary']
 collection = db['fakeData']
 app = Flask(__name__)
+
+@app.route('/',methods=['GET'])
+def get_ExpensesFromUserAndCategory():
+    print('Hello world!')
+    sum = 0
+    for post in collection.find({}):
+        sum+= post['amount']
+    return str(sum)
 
 @app.route('/userAndCategory',methods=['GET', 'POST'])
 def get_ExpensesFromUserAndCategory():
