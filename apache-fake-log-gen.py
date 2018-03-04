@@ -80,7 +80,7 @@ for case in switch(output_type):
 		f = sys.stdout
 
 
-users = ["ronaldo", "dad", "mom", "sister"]
+users = ["ronaldo", "ross", "john", "monica", "amanda"]
 # transaction is auto gen
 # amount is radnom
 category = ["food", "travel", "entertainment", "education", "shopping", "grocery", "utilities"] 
@@ -95,7 +95,7 @@ while (flag):
 	otime += increment
 
 	# category = ["food", "travel", "entertainment", "education", "shopping", "grocery", "utilities"] 
-	r_user = numpy.random.choice(users,p=[0.3,0.2,0.1,0.4])
+	r_user = numpy.random.choice(users,p=[0.2,0.2,0.1,0.2,0.3])
 	r_amt = random.uniform(0.90, 15)
 	r_category = numpy.random.choice(category,p=[0.18,0.15,0.18,0.10,0.20,0.11, 0.08])
 	r_desc = 'RANDOM_DESCRIPTION'
