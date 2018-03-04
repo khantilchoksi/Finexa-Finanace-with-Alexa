@@ -36,6 +36,8 @@ def get_ExpensesFromUserAndCategory():
     print('Hello world!')
     user = request.args.get('user')
     category = request.args.get('category')
+    print request.json['user']
+    print request.json['category']
     print user
     print category
     sum = 0
