@@ -16,7 +16,7 @@ from pymongo import MongoClient
 
 local = get_localzone()
 
-client = MongoClient("mongodb+srv://Vishrut_Patel:93Vishrut95!@cluster0-pdqdm.mongodb.net/test")
+client = MongoClient("mongodb//localhost:27017/")
 db = client['finexaPrimary']
 collection = db['fakeData']
 countersCollection = db['counters']
