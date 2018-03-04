@@ -15,6 +15,9 @@ app = Flask(__name__)
 @app.route('/',methods=['GET'])
 def get_Expenses():
     print('Hello world!')
+    print db
+    print collection
+    print '--------------'
     sum = 0
     for post in collection.find({}):
         sum+= post['amount']
