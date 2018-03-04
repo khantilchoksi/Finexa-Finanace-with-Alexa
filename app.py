@@ -34,12 +34,8 @@ def get_Expenses():
 @app.route('/',methods=['GET'])
 def get_ExpensesFromUserAndCategory():
     print('Hello world!')
-    user = request.args.get('user')
-    category = request.args.get('category')
-    print request.json['user']
-    print request.json['category']
-    print user
-    print category
+    user = request.json['user'].lower()
+    category = request.json['category'].lower()
     sum = 0
     for post in collection.find({'$and' : [{'user':user}, {'category' : category}]}):
         sum+= post['amount']
